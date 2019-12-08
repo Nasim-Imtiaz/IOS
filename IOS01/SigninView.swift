@@ -10,80 +10,87 @@ import SwiftUI
 
 struct SigninView: View {
     
-    @State var user : String = ""
-    @State var pass : String = ""
-    @State var repass : String = ""
-    
-    var body : some View{
-        
-        
-        ZStack{
-            
-            LinearGradient(gradient: .init(colors: [Color("1"),Color("2")]), startPoint: .leading, endPoint: .trailing).edgesIgnoringSafeArea(.all)
-            
-            
-            VStack(alignment: .center, spacing: 22, content: {
-                     
-                     Image("yourLogo").resizable().frame(width: 80, height: 80).padding(.bottom, 15)
-                     
-                     HStack{
-                         
-                         Image(systemName: "person.fill").resizable().frame(width: 20, height: 20)
-                         
-                         TextField("Username", text: $user).padding(.leading, 12).font(.system(size: 20))
-                         
-                     }.padding(12)
-                     .background(Color("Color"))
-                     .cornerRadius(20)
-                     
-                     HStack{
-                         
-                         Image(systemName: "lock.fill").resizable().frame(width: 15, height: 20).padding(.leading, 3)
-                         
-                         SecureField("Password", text: $repass).padding(.leading, 12).font(.system(size: 20))
-                         
-                     }.padding(12)
-                     .background(Color("Color"))
-                     .cornerRadius(20)
-                     
-                     HStack{
-                         
-                         Image(systemName: "lock.fill").resizable().frame(width: 15, height: 20).padding(.leading, 3)
-                         
-                         SecureField("Re-Password", text: $pass).padding(.leading, 12).font(.system(size: 20))
-                         
-                     }.padding(12)
-                     .background(Color("Color"))
-                     .cornerRadius(20)
-                     
-                     Button(action: {
-                         
-                         print("hi")
-                         
-                     }) {
-                         
-                         Text("SignUp").foregroundColor(.white).padding().frame(width: 150)
-                         
-                     }
-                     .background(LinearGradient(gradient: .init(colors: [Color("1"),Color("2")]), startPoint: .leading, endPoint: .trailing))
-                     .cornerRadius(20)
-                     .shadow(radius: 25)
-                     
-                     
-                 })
-                 .padding(.horizontal, 18)
-            
-        }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-        .background(Image("l3")
-        .resizable()
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity,alignment: .center)
-        
-        //.scaledToFill()
-        //.blur(radius: 1)
-        .edgesIgnoringSafeArea([.top,.bottom]))
-        
-    }
+    @State var f_Name:String=""
+       @State var l_Name:String=""
+       @State var e_Mail:String=""
+       @State var Password:String=""
+       
+       @State var width: CGFloat? = nil
+       
+       @State var isActive:Bool = false
+       @State var isSignnedup:Bool = false
+       
+       
+       var body: some View {
+           
+           NavigationView{
+               VStack{
+                   NavigationLink(destination: WelcomeView(), isActive: self.$isSignnedup){
+                       EmptyView()
+                       .navigationBarTitle("")
+                       .navigationBarHidden(true)
+                   }
+                   Text("U")
+                       .font(.system(size:50))
+                       .fontWeight(.bold)
+                       .foregroundColor(Color.red)
+                   +
+                   Text("Funding")
+                       .font(.system(size:50))
+                       .fontWeight(.bold)
+                       .foregroundColor(Color.white)
+                Text("One of the largest community")
+                    .foregroundColor(Color.gray)
+                   
+                   HStack(spacing: 0){
+                       Text("Email:").padding([.top,.leading,.bottom])
+                           .frame(width: 115, alignment: .leading)
+                       TextField("Enter Mail", text: $e_Mail).padding([.top,.bottom])
+                   }.background(Color.white)
+                   .cornerRadius(20)
+                    .padding([.trailing,.leading,.top])
+                   
+                   HStack(spacing: 0){
+                       Text("Password:").padding([.top,.leading,.bottom])
+                           .frame(width: 115, alignment: .leading)
+                       TextField("Enter Password", text: $Password).padding([.top,.bottom])
+                   }.background(Color.white)
+                       .cornerRadius(20)
+                       .padding([.trailing,.leading])
+                   
+                   HStack{
+                       Button(action: {self.isActive = true}){
+                           Text("Confirm")
+                               .font(.headline)
+                               .foregroundColor(Color.white)
+                       }
+                       .padding()
+                       .background(Color.red)
+                       .alert(isPresented: $isActive) {
+                           Alert(title: Text("Title"), message: Text("Message..."),
+                               primaryButton: .default (Text("OK")) {
+                                   self.isSignnedup.toggle()
+                               
+                               },
+                               secondaryButton: .cancel()
+                           )
+                           
+                       }
+                       .navigationBarHidden(true)
+                   }.cornerRadius(20)
+                   .padding()
+                   
+               }
+               .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+               .background(Image("l3")
+               .resizable()
+               .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity,alignment: .center))
+               .edgesIgnoringSafeArea([.top,.bottom])
+               .navigationBarTitle("")
+               .navigationBarBackButtonHidden(true)
+               .navigationBarHidden(true)
+           }
+       }
 }
 
 struct SigninView_Previews: PreviewProvider {

@@ -15,29 +15,98 @@ struct SIgnupView: View {
     @State var e_Mail:String=""
     @State var Password:String=""
     
+    @State var width: CGFloat? = nil
+    
     @State var isActive:Bool = false
+    @State var isSignnedup:Bool = false
+    
     
     var body: some View {
         
         NavigationView{
             VStack{
-                Text("Login")
-                TextField("Enter First Name",text: $f_Name).border(Color.black)
-                    .padding()
-                TextField("Enter Last Name",text: $l_Name).border(Color.black).padding()
-                TextField("Enter Mail",text: $e_Mail).border(Color.black).padding()
-                TextField("Enter Password",text: $Password).border(Color.black).padding()
+                NavigationLink(destination: SigninView(), isActive: self.$isSignnedup){
+                    EmptyView()
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
+                }
+                Text("U")
+                    .font(.system(size:50))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.red)
+                +
+                Text("Funding")
+                    .font(.system(size:50))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                Text("One of the largest community")
+                    .foregroundColor(Color.gray)
                 
-                NavigationLink(destination: WelcomeView(), isActive: self.$isActive){
-                    Text("")
-                }
-                Button("SignUp"){
-                    Auth.auth().createUser(withEmail: self.e_Mail, password: self.Password);
-                    self.isActive = true
-                }
+                HStack(spacing: 0){
+                    Text("Surname:").padding([.top,.leading,.bottom])
+                        .frame(width: 115, alignment: .leading)
+                        .cornerRadius(25)
+                    TextField("Enter First Name", text: $f_Name).padding([.top,.bottom])
+                }.background(Color.white)
+                .cornerRadius(20)
+                    .padding([.trailing,.leading,.top])
+                
+                HStack(spacing: 0){
+                    Text("Nickname:").padding([.top,.leading,.bottom])
+                        .frame(width: 115, alignment: .leading)
+                    TextField("Enter Last Name", text: $l_Name).padding([.top,.bottom])
+                }.background(Color.white)
+                .cornerRadius(20)
+                .padding([.trailing,.leading])
+                
+                HStack(spacing: 0){
+                    Text("Email:").padding([.top,.leading,.bottom])
+                        .frame(width: 115, alignment: .leading)
+                    TextField("Enter Mail", text: $e_Mail).padding([.top,.bottom])
+                }.background(Color.white)
+                .cornerRadius(20)
+                .padding([.trailing,.leading])
+                
+                HStack(spacing: 0){
+                    Text("Password:").padding([.top,.leading,.bottom])
+                        .frame(width: 115, alignment: .leading)
+                    TextField("Enter Password", text: $Password).padding([.top,.bottom])
+                }.background(Color.white)
+                    .cornerRadius(20)
+                    .padding([.trailing,.leading])
+                
+                HStack{
+                    Button(action: {self.isActive = true}){
+                        Text("Confirm")
+                            .font(.headline)
+                            .foregroundColor(Color.white)
+                    }
+                    .padding()
+                    .background(Color.red)
+                    .alert(isPresented: $isActive) {
+                        Alert(title: Text("Successful!!"), message: Text("Your account has been created succesfully."),
+                            primaryButton: .default (Text("OK")) {
+                                self.isSignnedup.toggle()
+                            
+                            },
+                            secondaryButton: .cancel()
+                        )
+                        
+                    }
+                    .navigationBarHidden(true)
+                }.cornerRadius(20)
+                .padding()
+                
             }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+            .background(Image("l3")
+            .resizable()
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity,alignment: .center))
+            .edgesIgnoringSafeArea([.top,.bottom])
+            .navigationBarTitle("")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
         }
-        
     }
 }
 

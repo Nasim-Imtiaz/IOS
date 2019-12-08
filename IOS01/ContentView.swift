@@ -15,13 +15,23 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack{
-                Text("UFunding")
+                Text("U")
+                    .font(.system(size:50))
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.red)
+                +
+                Text("Funding")
                     .font(.system(size:50))
                     .fontWeight(.bold)
                     .foregroundColor(Color.white)
+                Text("One of the largest community")
+                    .foregroundColor(Color.gray)
                 Spacer()
-                NavigationLink(destination: WelcomeView(), isActive: self.$isSignin){
-                    Text("")
+                
+                NavigationLink(destination: SigninView(), isActive: self.$isSignin){
+                    EmptyView()
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
                 }
                 Button(action: {
                     self.isSignin = true
@@ -35,8 +45,10 @@ struct ContentView: View {
                 }.padding(.leading)
                 .padding(.trailing)
                 .padding(.bottom)
-                NavigationLink(destination: WelcomeView(), isActive: self.$isSignup){
-                    Text("")
+                NavigationLink(destination: SIgnupView(), isActive: self.$isSignup){
+                    EmptyView()
+                    .navigationBarTitle("")
+                    .navigationBarHidden(true)
                 }
                 Button(action: {
                     self.isSignup = true
@@ -56,9 +68,6 @@ struct ContentView: View {
         .background(Image("l3")
         .resizable()
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity,alignment: .center)
-        
-        //.scaledToFill()
-        //.blur(radius: 1)
         .edgesIgnoringSafeArea([.top,.bottom]))
         }
     }
