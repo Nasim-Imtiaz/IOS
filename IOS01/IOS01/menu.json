@@ -1,0 +1,86 @@
+[
+	{
+        "id": "EF1CC5BB-4785-4D8E-AB98-5FA4E00B6A66",
+		"name": "Medical & Health",
+		"items": [
+			{
+                "id": "EDCD038C-036F-4C40-826F-61C88CD84DDD",
+				"name": "Noel Valade",
+				"title": "Help Noel Get a Powerchair!",
+				"price": 2300,
+				"picture":"nv",
+				"restrictions": ["G", "V"],
+				"description": "I'm a poor, disabled student in my last year of undergrad in Social Work. I have chronic pain which greatly impacts my mobility & ability to go to school and work. A powerchair would greatly help me be able to do this!"
+			},
+			{
+                "id": "EDCD038C-036F-4C40-826F-61C88CD84DDD",
+				"name": "Jennifer Baquing",
+				"title": "Queer Disabled Filipina Survivor Giving Cricle",
+				"price": 60000,
+				"picture":"jb",
+				"restrictions": ["G", "V"],
+				"description": "I am fundraising to survive severe injuries caused by a sexual assault in 2017. This attack has changed my entire life. Please help me make my basic needs and access medical treatment I desperately need. "
+			},
+			{
+                "id": "EDCD038C-036F-4C40-826F-61C88CD84DDD",
+				"name": "Samantha Lynn",
+				"title": "Support My Healing",
+				"price": 5000,
+				"picture":"sl",
+				"restrictions": ["G", "V"],
+				"description": "I'm asking for support for my brain healing intensive at the Neurologic Wellness Institute in January. I appreciate any help that you can provide - whether financially or via prayer, love, and encouragement."
+			},
+			{
+                "id": "EDCD038C-036F-4C40-826F-61C88CD84DDD",
+				"name": "Christina Alvarado",
+				"title": "Help Tory with Medical Expenses",
+				"price": 5000,
+				"picture":"ca",
+				"restrictions": ["G", "V"],
+				"description": "In recent months, Tory's health has taken a turn for the worst. She is unable to work and is in and out of the hospital for treatments and pain management. Please help support her as she navigates this difficult time."
+			}
+		]
+	},
+	{
+		"name": "Schools & Education",
+        "id": "3D97FAB4-50AC-40FC-9BF0-3F46BB6A92F5",
+		"items": [
+			{
+                "id": "EDCD038C-036F-4C40-826F-61C88CD84DDD",
+				"name": "April Charleson",
+				"title": "Non-Profit Mentoring Program, Lifted Out of Poverty",
+				"price": 25000,
+				"picture":"ac",
+				"restrictions": ["G", "V"],
+				"description": "Lifted Out of Poverty now has 11 mentees grades 8-12! We are in our fourth year! Check out our website! https://liftedoutofpoverty.wixsite.com/loop"
+			},
+			{
+                "id": "EDCD038C-036F-4C40-826F-61C88CD84DDD",
+				"name": "Lucie Ufheil",
+				"title": "Lucie's Thesis Fund",
+				"price": 500,
+				"picture":"lu",
+				"restrictions": ["G", "V"],
+				"description": "Hi, I'm raising money for my senior thesis! I will be traveling to Rome to study architecture and monument building for a week in March 2020 (13th-22nd) and need funds for accommodation and transportation on site."
+			},
+			{
+                "id": "EDCD038C-036F-4C40-826F-61C88CD84DDD",
+				"name": "Stephanie Smekens",
+				"title": "Junior Class Fundraising",
+				"price": 2500,
+				"picture":"ss",
+				"restrictions": ["G", "V"],
+				"description": "The Junior class members of Collegiate Preparatory Academy's Student Council are attempting to raise $2,500 for our upcoming school events such as Winter Formal and Prom!"
+			},
+			{
+                "id": "EDCD038C-036F-4C40-826F-61C88CD84DDD",
+				"name": "Xochilt Zaragoza",
+				"title": "Rent for the next two months please",
+				"price": 1700,
+				"picture":"xz",
+				"restrictions": ["G", "V"],
+				"description": "I depend on my Fasfa for rent but I haven't received it. I'm pretty desperate. I am currently getting ready to start my job but that wont be till the beginning of January. I wouldn't be able to pay next months rent. "
+			}
+		]
+	}
+]
